@@ -1,46 +1,100 @@
-import react, { useState } from 'react'
+import { useEffect, useState } from 'react'
+import AuthorQuotesList from './components/AuthorQuotesList'
+import RandomQuotes from './components/RandomQuotes'
 // colors
 // main - #386a81
 // whi- #ffffff
 // black- #081c2e
-const url = 'https://api.quotable.io/randomhttps://api.quotable.io/random'
+const url = 'https://api.quotable.io/random'
 function App() {
-  const [data, setData] = useState([])
+  const [randomQuote, setRandomQuote] = useState([])
   const [loading, setLoading] = useState(true)
+  const [authorQuotes, setAutorQuotes] = useState([])
+  const [seeListOfAuthor, setSeeListOfAuthor] = useState(false)
+  const [authorName, setAuthorName] = useState('')
 
-  const getQuotesOfAuthor = (author) => {}
+  const getQuotesOfAuthor = async (author) => {
+    try {
+      setLoading(true)
+      const response = await fetch(
+        'https://api.quotable.io/quotes?author=' + author
+      )
+      const quoteData = await response.json()
+      setAutorQuotes(quoteData.results)
+      setAuthorName(author)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
+  }
 
+  const getQuotes = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch('https://api.quotable.io/random')
+
+      const quoteData = await response.json()
+      setRandomQuote(quoteData)
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
+  }
+  const showAuthorQuotes = (author) => {
+    if (seeListOfAuthor) {
+      setSeeListOfAuthor(false)
+      setAutorQuotes([])
+    } else {
+      setSeeListOfAuthor(true)
+      getQuotesOfAuthor(author)
+    }
+  }
+
+  useEffect(() => {
+    getQuotes()
+  }, [])
+
+  if (loading) {
+    return (
+      <h1 className='text-[120%] mt-20 w-full   flex justify-center items-center '>
+        Please wait a moment
+        <i className='material-icons animate-spin'>rotate_right</i>
+      </h1>
+    )
+  }
   return (
     <>
-      <div className=' bg-[#fff] m-auto max-w-xl w-full h-[100vh]'>
-        <button className='flex m-2 hover:text-[#386a81] text-[#081c2e] transition-all absolute top-4  md:ml-[55%] ml-[75%] '>
-          random
-          <i className='material-icons hover:animate-spin ml-2'>cached</i>
-        </button>
-        <div className='border-l-8  border-[#386a81] w-fit h-fit mt-[25%] ml-4 '>
-          <p className='text-[#081c2e] pl-4 md:ml-4 md:max-w-2xl   md:text-2xl    text-[100%] '>
-            “The first rule of any technology used in a business is that
-            automation applied to an efficient operation will magnify the
-            efficiency. The second is that automation applied to an inefficient
-            operation will magnify the inefficiency.”
-          </p>
-        </div>
-
-        <div className=''>
-          <h1 className=''>Bill Gates</h1>
-          <p className=''>business</p>
-        </div>
-
-        <footer className='absolute bottom-0  '>
-          <p className='text-center'>
-            created by{' '}
-            <a href='' target='_blank' rel='noopener noreferrer'>
-              jyoti-p
-            </a>
-            - devChallenges.io
-          </p>
-        </footer>
+      <div className=' bg-[#fff] m-auto max-w-xl w-full h-full '>
+        {seeListOfAuthor ? (
+          <AuthorQuotesList
+            authorName={authorName}
+            authorQuotes={authorQuotes}
+            showAuthorQuotes={showAuthorQuotes}
+          />
+        ) : (
+          <RandomQuotes
+            getQuotes={getQuotes}
+            randomQuote={randomQuote}
+            showAuthorQuotes={showAuthorQuotes}
+          />
+        )}
       </div>
+      <footer className='mt-[20%]'>
+        <p className='text-center '>
+          created by{' '}
+          <a
+            href='https://github.com/jyotip101/todo-app-in-react'
+            target='_blank'
+            className='text-[#386a81]'
+            rel='noopener noreferrer'
+          >
+            jyoti-p
+          </a>
+          - devChallenges.io
+        </p>
+      </footer>
     </>
   )
 }
