@@ -81,11 +81,11 @@ function App() {
           />
         )}
       </div>
-      <footer className='mt-[20%]'>
+      <footer className='mt-[12%]'>
         <p className='text-center '>
           created by{' '}
           <a
-            href='https://github.com/jyotip101/todo-app-in-react'
+            href='https://github.com/jyotip101/Random-quote-generator-in-react'
             target='_blank'
             className='text-[#386a81]'
             rel='noopener noreferrer'

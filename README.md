@@ -8,9 +8,9 @@
 
 <div align="center">
   <h3>
-    <!-- <a href="https://{your-demo-link.your-domain}"> -->
+    <a href="https://jyotip101.github.io/Random-quote-generator-in-react/">
       Demo
-    <!-- </a> -->
+    </a>
     <span> | </span>
     <!-- <a href="https://{your-url-to-the-solution}"> -->
       Solution
@@ -37,15 +37,11 @@
 
 ## Overview
 
-<!--
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![Random-quote-generator-App-desktop](https://user-images.githubusercontent.com/66724598/153000090-eb317c8f-d51f-48ea-a255-929490cccfe4.png)
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+![Random-quote-generator-App](https://user-images.githubusercontent.com/66724598/153000089-d8a7bdfe-983a-445f-9a53-6b06598ab010.png)
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :) -->
+![Random-quote-generator-App-3](https://user-images.githubusercontent.com/66724598/153000141-62992dc0-2ebc-4bc2-9d83-5e5a06253158.png)
 
 ### Built With
 
