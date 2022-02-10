@@ -30,12 +30,18 @@
   - [Built With](#built-with)
 - [Features](#features)
 - [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+- [Contact](#contact) 
 
 <!-- OVERVIEW -->
 
 ## Overview
+
+In this Random quote generator app, you can do the following things,
+
+- you can see a random quote
+- you can generate a new random quote
+- When you select quote author, you can see a list of quotes from them
+
 
 ![Random-quote-generator-App-desktop](https://user-images.githubusercontent.com/66724598/153000090-eb317c8f-d51f-48ea-a255-929490cccfe4.png)
 
@@ -74,14 +80,10 @@ $ npm install
 # Run the app
 $ npm start
 ```
-
-## Acknowledgements
-
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
-
+ 
 ## Contact
 
 <!-- - Website [your-website.com](https://{your-web-site-link}) -->
 
 - GitHub [@jyotip101](https://github.com/jyotip101)
-- Twitter [@jyotipatil77100](https://twitter.com/jyotipatil77100)
+- Twitter [@jyotipatil77100](https://twitter.com/jyotipatil77100) 
